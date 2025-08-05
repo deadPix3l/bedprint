@@ -32,14 +32,6 @@ class Ticket(Section):
     pass
 
 
-class TodoSection(Section):
-    pass
-
-class BonusGoals(TodoSection):
-    pass
-
-class WhimsySection(Section):
-    pass
 
 
 

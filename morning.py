@@ -23,17 +23,6 @@ def morning_header():
     p.set_with_default()
 
 
-def todo_list():
-    p.set_with_default(bold=True, underline=True)
-    p.textln('\nTODO\n')
-    p.set_with_default()
-    for i in fetch_todos():
-      p.textln(f"[ ] {i}")
-
-    p.textln('\nBONUS GOALS\n')
-    bonus = bonus_goals()[0]
-    p.textln(f"[ ] {bonus}")
-    p.set_with_default()
 
 def whimsy():
     # add some whimsical stuff here
