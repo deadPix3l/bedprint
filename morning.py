@@ -6,7 +6,7 @@ from mocksources import *
 
 import httpx
 
-#c = MockConfig()
+#c = MockConfig() # noqa: ERA
 c = config.Config()
 p = c.printer()
 
@@ -20,29 +20,6 @@ def morning_header():
         )
 
     p.textln(f"\n\n{date.today()}")
-    p.set_with_default()
-
-def btc_price():
-    # bitcoin price
-    api_call= httpx.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd")
-    btcprice = api_call.json()["bitcoin"]["usd"]
-    p.text(f"BTC price: ")
-    p.set(bold=True, underline=True)
-    p.textln(f"${btcprice}")
-    p.set_with_default()
-
-def news_events():
-    news = fetch_news() # fetch news here
-    p.set_with_default(bold=True, underline=True)
-    p.textln("\nNEWS\n")
-    p.set_with_default()
-    for i in news[:5]: # limit to 5
-      p.textln(str(i))
-    p.set_with_default()
-
-def concert_tonight():
-    p.set_with_default()
-    p.text("Show Tonight: None\nLocation: N/A\nDoors: Never\n")
     p.set_with_default()
 
 
@@ -74,7 +51,7 @@ def whimsy():
 
 def morning_brief():
     morning_header()
-    btc_price()
+    coin_price()
     #news_events()
     todo_list()
     #concert_tonight()
